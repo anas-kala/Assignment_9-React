@@ -27,58 +27,58 @@ const NavigationBar = () => {
   console.log(activeItem);
   return (
     <div>
-      <Menu size="massive">
-        <Menu.Item
-          name="numbers"
-          active={activeItem === "numbers"}
-          onClick={() => setActiveItem("Numebrs")}
-        />
-        <Menu.Item
-          name="dates"
-          active={activeItem === "dates"}
-          onClick={() => setActiveItem("Dates")}
-        />
-        <Menu.Item
-          name="texts"
-          active={activeItem === "texts"}
-          onClick={() => setActiveItem("Texts")}
-        />
-
-        <Menu.Menu position="right">
-          <Dropdown item text={language}>
-            <Dropdown.Menu>
-              <Dropdown.Item
-                name="English"
-                active={language === "english"}
-                onClick={() => setLanguage("English")}
-              >
-                English
-              </Dropdown.Item>
-              <Dropdown.Item
-                name="Russian"
-                active={language === "russian"}
-                onClick={() => setLanguage("Russian")}
-              >
-                Russian
-              </Dropdown.Item>
-              <Dropdown.Item
-                name="Spanish"
-                active={language === "spanish"}
-                onClick={() => setLanguage("Spanish")}
-              >
-                Spanish
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Menu.Menu>
-      </Menu>
-
       <Router>
-        <Link to="/Numbers">Numbers</Link>
-        <br></br>
-        <Link to="/Texts">Texts</Link>
-        <br></br>
-        <Link to="/Dates">Dates</Link>
+        <Menu size="massive">
+          <Menu.Item
+            name="numbers"
+            active={activeItem === "numbers"}
+            onClick={() => setActiveItem("Numebrs")}
+          >
+            <Link to="/Numbers">Numbers</Link>
+          </Menu.Item>
+          <Menu.Item
+            name="dates"
+            active={activeItem === "dates"}
+            onClick={() => setActiveItem("Dates")}
+          >
+            <Link to="/Dates">Dates</Link>
+          </Menu.Item>
+          <Menu.Item
+            name="texts"
+            active={activeItem === "texts"}
+            onClick={() => setActiveItem("Texts")}
+          >
+            <Link to="/Texts">Texts</Link>
+          </Menu.Item>
+          <Menu.Menu position="right">
+            <Dropdown item text={language}>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  name="English"
+                  active={language === "english"}
+                  onClick={() => setLanguage("English")}
+                >
+                  English
+                </Dropdown.Item>
+                <Dropdown.Item
+                  name="Russian"
+                  active={language === "russian"}
+                  onClick={() => setLanguage("Russian")}
+                >
+                  Russian
+                </Dropdown.Item>
+                <Dropdown.Item
+                  name="Spanish"
+                  active={language === "spanish"}
+                  onClick={() => setLanguage("Spanish")}
+                >
+                  Spanish
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Menu.Menu>
+        </Menu>
+
         <Switch>
           <Route path="/Numbers">
             <Numbers />
