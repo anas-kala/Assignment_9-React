@@ -1,13 +1,12 @@
-import './App.css';
-import NavigationBar from './components/NavigationBar';
-import Dates from './components/Dates';
-import Numbers from './components/Numbers';
-import Texts from './components/Texts';
+import "./App.css";
+import NavigationBar from "./Pages/NavigationBar";
+
 
 function App() {
   return (
     <div className="App">
       <NavigationBar/>
+
     </div>
   );
 }
