@@ -1,63 +1,59 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Dropdown, Menu } from "semantic-ui-react";
 
-export default class MenuExampleSizeSmall extends Component {
-  state = { activeItem: "numbers", language: "English" };
+const NavigationBar = () => {
+  const [activeItem, setActiveItem] = useState('Numbers');
+  const [language, setLanguage] = useState('English');
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-  handleLanguageClick = (e, { name }) => this.setState({ activeItem: name });
+  console.log(activeItem);
+  console.log(language);
+  return (
+    <Menu size="massive">
+      <Menu.Item
+        name="numbers"
+        active={activeItem === "numbers"}
+        onClick={()=>setActiveItem('Numebrs')}
+      />
+      <Menu.Item
+        name="dates"
+        active={activeItem === "dates"}
+        onClick={()=>setActiveItem('Dates')}
+      />
+      <Menu.Item
+        name="texts"
+        active={activeItem === "texts"}
+        onClick={()=>setActiveItem('Texts')}
+      />
 
-  render() {
-    const { activeItem } = this.state.activeItem;
-    const { language } = this.state.language;
+      <Menu.Menu position="right">
+        <Dropdown item text={language}>
+          <Dropdown.Menu>
+            <Dropdown.Item
+              name="English"
+              active={language === "english"}
+              onClick={()=>setLanguage('English')}
+            >
+              English
+            </Dropdown.Item>
+            <Dropdown.Item
+              name="Russian"
+              active={language === "russian"}
+              onClick={()=>setLanguage('Russian')}
+            >
+              Russian
+            </Dropdown.Item>
+            <Dropdown.Item
+              name="Spanish"
+              active={language === "spanish"}
+              onClick={()=>setLanguage('Spanish')}
+            >
+              Spanish
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </Menu.Menu>
+    </Menu>
+  );
+};
 
-    console.log(this.state.activeItem);
-    return (
-      <Menu size="massive">
-        <Menu.Item
-          name="numbers"
-          active={activeItem === "numbers"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="dates"
-          active={activeItem === "dates"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="texts"
-          active={activeItem === "texts"}
-          onClick={this.handleItemClick}
-        />
-
-        <Menu.Menu position="right">
-          <Dropdown item text={this.state.language}>
-            <Dropdown.Menu>
-              <Dropdown.Item
-                name="English"
-                active={language === "english"}
-                onClick={this.handleLanguageClick}
-              >
-                English
-              </Dropdown.Item>
-              <Dropdown.Item
-                name="Russian"
-                active={language === "russian"}
-                onClick={this.handleLanguageClick}
-              >
-                Russian
-              </Dropdown.Item>
-              <Dropdown.Item
-                name="Spanish"
-                active={language === "spanish"}
-                onClick={this.handleLanguageClick}
-              >
-                Spanish
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Menu.Menu>
-      </Menu>
-    );
-  }
-}
+export default NavigationBar;
