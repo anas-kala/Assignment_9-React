@@ -61,18 +61,18 @@ const NavigationBar = () => {
                   English
                 </Dropdown.Item>
                 <Dropdown.Item
-                  name="Russian"
-                  active={language === "russian"}
-                  onClick={() => setLanguage("Russian")}
+                  name="German"
+                  active={language === "german"}
+                  onClick={() => setLanguage("German")}
                 >
-                  Russian
+                  German
                 </Dropdown.Item>
                 <Dropdown.Item
-                  name="Spanish"
-                  active={language === "spanish"}
-                  onClick={() => setLanguage("Spanish")}
+                  name="French"
+                  active={language === "french"}
+                  onClick={() => setLanguage("French")}
                 >
-                  Spanish
+                  French
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
