@@ -87,7 +87,7 @@ const NavigationBar = () => {
             <Texts lang={language} />
           </Route>
           <Route path="/Dates">
-            <Dates />
+            <Dates lang={language}/>
           </Route>
         </Switch>
       </Router>
