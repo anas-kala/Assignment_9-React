@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Dropdown } from "semantic-ui-react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 
 const Input = styled.input`
   margin: 15px;
@@ -12,14 +12,22 @@ const Div = styled.div`
   display: inline-block;
 `;
 
-const Texts = () => {
-  const [value, setValue] = useState('male');
+const Texts = (props) => {
+  const [value, setValue] = useState("male");
 
   function handleChange(event) {
-    setValue(event.target.value );
+    setValue(event.target.value);
   }
   console.log(value);
-
+  const { t, i18n } = useTranslation();
+  // i18n.changeLanguage('fr-CA');
+  useEffect(() => {
+    if (props.lang === "French") {
+      i18n.changeLanguage("fr-CA");
+    } else if (props.lang === "English") {
+      i18n.changeLanguage("en-US");
+    }
+  });
   return (
     <div>
       <Div>
@@ -29,7 +37,7 @@ const Texts = () => {
           <option value="male">Male</option>
         </select>
       </Div>
-      <h1>hallo</h1>
+      <h1>{t("Welcome to React")}</h1>
       <h1>goodbye</h1>
       <h1>On other Label</h1>
     </div>
