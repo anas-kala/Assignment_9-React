@@ -32,7 +32,7 @@ const resources = {
   },
   de: {
     translation: {
-      "Welcome to React": "Wellkommen beiReact un React-i18next",
+      "Welcome to React": "Wellkommen bei React un React-i18next",
       "there is": "es gibt",
       "there are": "es sind",
       "apple":"Apfel",
